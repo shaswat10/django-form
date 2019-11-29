@@ -1,0 +1,88 @@
+{% load static %}
+<html>
+<head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="master.css">
+
+
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+<!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">
+        <img src="{% static 'download.png' %}" width="30" height="30" class="d-inline-block align-top" alt="">
+        Atom
+      </a>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="login">Log in</a></li>
+      </ul>
+    </nav>
+
+
+
+<div class="jumbotron">
+
+  <div class="container">
+
+     <form action="register" method="post" >
+       {% csrf_token %}
+
+       <div class="form-group">
+        <label for="formGroupExampleInput">Username</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" name="Uname"  placeholder="Enter valid User name" required>
+      </div>
+
+      <div class="form-group">
+       <label for="formGroupExampleInput">Enter first Name</label>
+       <input type="text" class="form-control" id="formGroupExampleInput" name="Name"  placeholder="name" required>
+     </div>
+
+     <div class="form-group">
+      <label for="formGroupExampleInput">Last Name</label>
+      <input type="text" class="form-control" id="formGroupExampleInput" name="Lname" placeholder="Last Name" required>
+    </div>
+
+  <div class="form-group">
+   <label for="exampleInputEmail1">Email address</label>
+   <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="Email" placeholder="Enter email" required>
+   <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  </div>
+  <div class="form-group">
+   <label for="exampleInputPassword1">Password</label>
+   <input type="password" class="form-control" id="exampleInputPassword1" name="Password" placeholder="Password" required>
+  </div>
+   <div class="document">
+     <label for="exampleFormControlFile1">Example file input</label>
+       <input type="file" class="form-control-file" name="document" id="exampleFormControlFile1">
+   </div>
+
+    <br>
+  <div class="form-check">
+   <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+   <label class="form-check-label" for="exampleCheck1">I agree to all terms and conditions</label>
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+  <div>
+
+    {% for message in messages %}
+    <h3 style="color:red"> {{message}} </h3>
+    {% endfor %}
+
+  </div>
+
+
+  </div>
+
+</div>
+
+  </body>
+</html>

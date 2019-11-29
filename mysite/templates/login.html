@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+<nav class="navbar navbar-light bg-light">
+          <a class="navbar-brand" href="signup.html">
+            <img src="download.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Atom
+          </a>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="register">Register</a></li>
+          </ul>
+        </nav>
+
+        <div class="jumbotron">
+
+  <div class="container">
+
+
+  <form action="login" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+     <label for="formGroupExampleInput">Username</label>
+     <input type="text" class="form-control" id="formGroupExampleInput" name="username"  placeholder="Enter valid User name" required>
+   </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary" value="login">Submit</button>
+</form>
+
+<div>
+
+  {% for message in messages %}
+  <h3 style="color:red"> {{message}} </h3>
+  {% endfor %}
+
+</div>
+
+
+  </div>
+
+</div>
+
+</body>
+</html>
